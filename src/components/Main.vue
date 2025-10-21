@@ -54,12 +54,22 @@
       <div class="author-list">
         <span class="org">
           <span class="ind">1</span>
-          Beijing Institute of Technology
+          School of Computer, Beijing Institute of Technology
         </span>
         <br>
         <span class="org">
           <span class="ind">2</span>
-          Shenzhen MSU-BIT University
+          Guangdong Laboratory of Machine Perception and Intelligent Computing, Shenzhen MSU-BIT University
+        </span>
+        <br>
+        <span class="org">
+          <span class="ind">2</span>
+          School of Mechanical Engineering, Beijing Institute of Technology
+        </span>
+        <br>
+        <span class="org">
+          <span class="ind">2</span>
+          Shanghai Artificial Intelligence Laboratory
         </span>
       </div>
 
@@ -71,7 +81,7 @@
                 d="M3.842 0a1 1 0 0 0-.922.608c-.153.369-.044.627.294 1.111l6.919 8.36l-1.023 1.106a1.04 1.04 0 0 0 .003 1.423l1.23 1.313l-5.44 6.444c-.28.3-.453.823-.297 1.199a1.025 1.025 0 0 0 .959.635a.91.91 0 0 0 .689-.34l5.783-6.126l7.49 8.005a.85.85 0 0 0 .684.26a.96.96 0 0 0 .877-.615c.158-.377-.017-.75-.306-1.14L13.73 13.9l1.064-1.13a.963.963 0 0 0 .009-1.316L4.633.464S4.26.01 3.867 0zm0 .272h.017c.218.005.487.272.564.364l.005.006l.005.005l10.17 10.99a.69.69 0 0 1-.008.946l-1.066 1.133l-1.498-1.772l-8.6-10.39c-.328-.472-.352-.619-.26-.841a.73.73 0 0 1 .671-.44Zm14.341 1.57a.88.88 0 0 0-.655.242l-5.696 6.158l1.694 1.832l5.309-6.514c.325-.433.479-.66.325-1.029a1.12 1.12 0 0 0-.977-.689m-7.655 12.282l1.318 1.414l-5.786 6.13a.65.65 0 0 1-.496.26a.75.75 0 0 1-.706-.467c-.112-.269.036-.687.244-.909l.005-.005l.005-.006z" />
             </svg>
           </span>
-          <span>arXiv</span>
+          <span>arXiv (comming soon)</span>
         </a>
       </span>
       <span class="link-block">
@@ -91,7 +101,7 @@
           <span class="icon">
             <i class="fa fa-database"></i>
           </span>
-          <span>Data</span>
+          <span>Data (comming soon)</span>
         </a>
       </span>
 
@@ -101,7 +111,7 @@
           <span class="icon">
             <i class="fas fa-file-pdf"></i>
           </span>
-          <span>Submited to NeurIPS 2025</span>
+          <span>Submited to ICLR 2026</span>
         </a>
       </span> -->
 
@@ -119,14 +129,9 @@
 
     <div class="tldr">
       <p><b>TL;DR</b> 
-        Embodied Question Answering (EQA) requires agents to explore 3D environments to obtain observations and answer questions related to the scene.
-        Existing methods leverage VLMs to directly explore the environment and answer questions without explicit thinking or planning, which limits their reasoning ability and results in excessive or inefficient exploration as well as ineffective responses.
-        In this paper, we introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
+        We introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
         This enables ToolEQA to generate more accurate responses with a shorter exploration distance.
         To enhance the model's ability for tool-usage and multi-step reasoning, we further design a novel EQA data generation pipeline that automatically constructs large-scale EQA tasks with reasoning trajectories and corresponding answers.
-        Based on the pipeline, we collect the EQA-RT dataset that contains about 18K tasks, divided into a training set EQA-RT-Train, and two test sets EQA-RT-Seen (scenes overlapping with the training set) and EQA-RT-Unseen (novel scenes).
-        Experiments on EQA-RT-Seen and EQA-RT-Unseen show that ToolEQA improves the success rate by 9.2$\sim$20.2\% over state-of-the-art baselines, while outperforming the zero-shot ToolEQA by 10\% in success rate. 
-        In addition, ToolEQA also achieves state-of-the-art performance on the HM-EQA, OpenEQA, and EXPRESS-Bench datasets, demonstrating its generality.
         </p>
     </div>
 
@@ -140,18 +145,14 @@
     <div class="section">
       <div class="section-title">Introduction</div>
       <p class="intro">
-        Embodied Question Answering (EQA) requires agents to autonomously explore and understand the environment to answer context-dependent questions.
-        Existing frameworks typically center around the planner, which guides the stopping module, memory module, and answering module for reasoning. 
-        In this paper, we propose a memory-centric EQA framework named MemoryEQA. 
-        Unlike planner-centric EQA models where the memory module cannot fully interact with other modules, MemoryEQA flexible feeds memory information 
-        into all modules, thereby enhancing efficiency and accuracy in handling complex tasks, such as those involving multiple targets across different regions.
-        Specifically, we establish a multi-modal hierarchical memory mechanism, which is divided into global memory that stores language-enhanced scene maps, 
-        and local memory that retains historical observations and state information. 
-        When performing EQA tasks, the multi-modal large language model is leveraged to convert memory information into the required input formats for injection into different modules.
-        To evaluate EQA models' memory capabilities, we constructed the MT-HM3D dataset based on HM3D, comprising 1,587 question-answer pairs involving 
-        multiple targets across various regions, which requires agents to maintain memory of exploration-acquired target information.
-        Experimental results on HM-EQA, MT-HM3D, and OpenEQA demonstrate the effectiveness of our framework, where a 19.8\% performance gain on MT-HM3D 
-        compared to baseline model further underscores memory capability's pivotal role in resolving complex tasks.
+        Embodied Question Answering (EQA) requires agents to explore 3D environments to obtain observations and answer questions related to the scene.
+        Existing methods leverage VLMs to directly explore the environment and answer questions without explicit thinking or planning, which limits their reasoning ability and results in excessive or inefficient exploration as well as ineffective responses.
+        In this paper, we introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
+        This enables ToolEQA to generate more accurate responses with a shorter exploration distance.
+        To enhance the model's ability for tool-usage and multi-step reasoning, we further design a novel EQA data generation pipeline that automatically constructs large-scale EQA tasks with reasoning trajectories and corresponding answers.
+        Based on the pipeline, we collect the EQA-RT dataset that contains about 18K tasks, divided into a training set EQA-RT-Train, and two test sets EQA-RT-Seen (scenes overlapping with the training set) and EQA-RT-Unseen (novel scenes).
+        Experiments on EQA-RT-Seen and EQA-RT-Unseen show that ToolEQA improves the success rate by 9.2$\sim$20.2\% over state-of-the-art baselines, while outperforming the zero-shot ToolEQA by 10\% in success rate. 
+        In addition, ToolEQA also achieves state-of-the-art performance on the HM-EQA, OpenEQA, and EXPRESS-Bench datasets, demonstrating its generality.
       </p>
     </div>
 
