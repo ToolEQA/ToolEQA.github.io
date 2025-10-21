@@ -7,9 +7,9 @@
   </head>
   <div class="main">
     <div class="section header">
-      <div class="title"><img class="mat-icon" src="/icon2.png">MemoryEQA</div>
+      <div class="title"><img class="ToolEQA-icon" src="/snmp工具集成.png">ToolEQA</div>
       <div class="subtitle">
-        <span class="uns">Memory</span>-Centric <span class="uns">E</span>mbodied <span class="uns">Q</span>uestion <span class="uns">A</span>nswer
+        Multi-Step Reasoning for Embodied Question Answering via Tool Augmentation
       </div>
 
       <div class="author-list">
@@ -18,16 +18,36 @@
           <span class="ind">1,2 &#9733;</span>,
         </span>
         <span class="author">
-          <el-link href="https://zhigao2017.github.io/">Zhi Gao</el-link>
-          <span class="ind">1,2 &#9733;
+          Hansheng Liang
+          <span class="ind">3 &#9733;
         </span>
         <span class="author">
-          <el-link href="https://wu-yuwei-bit.github.io/">Yuwei Wu</el-link>
-          <span class="ind">&#9993;3,4</span>,
+          Xiaomeng Fan
+          <span class="ind">&#9993;1</span>,
         </span>
         <span class="author">
-          <el-link href="https://scholar.google.com/citations?user=Sl6TV7gAAAAJ&hl=en">Yunde Jia</el-link>
-          <span class="ind">4,3</span>,
+          Zhi Gao
+          <span class="ind">1</span>,
+        </span>
+        <span class="author">
+          Chuanhao Li
+          <span class="ind">4</span>,
+        </span>
+        <span class="author">
+          Che Sun
+          <span class="ind">2</span>,
+        </span>
+        <span class="author">
+          Xu Bin
+          <span class="ind">3</span>,
+        </span>
+        <span class="author">
+          Yuwei Wu
+          <span class="ind">1</span>,
+        </span>
+        <span class="author">
+          Yunde Jia
+          <span class="ind">2</span>,
         </span>
         <br>
       </div>
@@ -55,7 +75,7 @@
         </a>
       </span>
       <span class="link-block">
-        <a href="https://github.com/memory-eqa/MemoryEQA" class="external-link button is-normal is-rounded is-dark">
+        <a href="https://github.com/ToolEQA/ToolEQA" class="external-link button is-normal is-rounded is-dark">
           <span class="icon">
             <i class="fab fa-github"></i>
           </span>
@@ -99,8 +119,15 @@
 
     <div class="tldr">
       <p><b>TL;DR</b> 
-        The paper proposes MemoryEQA, a memory-centric embodied question answering (EQA) framework with the MT-HM3D dataset for evaluate memory ability of EQA models, 
-        boosting performance by 19.8% on MT-HM3D from baseline model.</p>
+        Embodied Question Answering (EQA) requires agents to explore 3D environments to obtain observations and answer questions related to the scene.
+        Existing methods leverage VLMs to directly explore the environment and answer questions without explicit thinking or planning, which limits their reasoning ability and results in excessive or inefficient exploration as well as ineffective responses.
+        In this paper, we introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
+        This enables ToolEQA to generate more accurate responses with a shorter exploration distance.
+        To enhance the model's ability for tool-usage and multi-step reasoning, we further design a novel EQA data generation pipeline that automatically constructs large-scale EQA tasks with reasoning trajectories and corresponding answers.
+        Based on the pipeline, we collect the EQA-RT dataset that contains about 18K tasks, divided into a training set EQA-RT-Train, and two test sets EQA-RT-Seen (scenes overlapping with the training set) and EQA-RT-Unseen (novel scenes).
+        Experiments on EQA-RT-Seen and EQA-RT-Unseen show that ToolEQA improves the success rate by 9.2$\sim$20.2\% over state-of-the-art baselines, while outperforming the zero-shot ToolEQA by 10\% in success rate. 
+        In addition, ToolEQA also achieves state-of-the-art performance on the HM-EQA, OpenEQA, and EXPRESS-Bench datasets, demonstrating its generality.
+        </p>
     </div>
 
     <div class="section">
