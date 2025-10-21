@@ -19,11 +19,11 @@
         </span>
         <span class="author">
           Hansheng Liang
-          <span class="ind">3 &#9733;
+          <span class="ind">3 &#9733;</span>,
         </span>
         <span class="author">
           Xiaomeng Fan
-          <span class="ind">&#9993;1</span>,
+          <span class="ind">1 &#9733;</span>,
         </span>
         <span class="author">
           Zhi Gao
@@ -63,18 +63,17 @@
         </span>
         <br>
         <span class="org">
-          <span class="ind">2</span>
+          <span class="ind">3</span>
           School of Mechanical Engineering, Beijing Institute of Technology
         </span>
         <br>
         <span class="org">
-          <span class="ind">2</span>
+          <span class="ind">4</span>
           Shanghai Artificial Intelligence Laboratory
         </span>
       </div>
-
       <span class="link-block">
-        <a href="https://arxiv.org/pdf/2505.13948" class="external-link button is-normal is-rounded is-dark">
+        <a href="https://arxiv.org" class="external-link button is-normal is-rounded is-dark">
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.0em" height="1.0em" viewBox="0 0 24 24">
               <path fill="currentColor"
@@ -96,7 +95,7 @@
       <!-- Data Link. need changing -->
       <span class="link-block">
 
-        <a target="_blank" href="https://huggingface.co/datasets/zmling/MT-HM3D"
+        <a target="_blank" href="https://huggingface.co/datasets"
           class="external-link button is-normal is-rounded is-dark">
           <span class="icon">
             <i class="fa fa-database"></i>
@@ -105,128 +104,126 @@
         </a>
       </span>
 
-      <!-- <span class="link-block">
-        <a href="file/clova_cvpr24_poster.pdf"
-            class="external-link button is-normal is-rounded is-dark">
-          <span class="icon">
-            <i class="fas fa-file-pdf"></i>
-          </span>
-          <span>Submited to ICLR 2026</span>
-        </a>
-      </span> -->
-
-      <!-- <span class="link-block">
-            <a href="file/clova_slides.pdf"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                  <i class="fas fa-file-pdf"></i>
-              </span>
-              <span>Slides</span>
-            </a>
-          </span> -->
-
     </div>
 
     <div class="tldr">
       <p><b>TL;DR</b> 
-        We introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
+        We introduce ToolEQA, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
         This enables ToolEQA to generate more accurate responses with a shorter exploration distance.
         To enhance the model's ability for tool-usage and multi-step reasoning, we further design a novel EQA data generation pipeline that automatically constructs large-scale EQA tasks with reasoning trajectories and corresponding answers.
         </p>
     </div>
 
     <div class="section">
-      <el-card class="teaser">
-        <el-image src="./teaser.png"></el-image>
-      </el-card>
+      <div class="video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qTHHB2ATnVc?si=-FimKZAu9a7QdocN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
     </div>
-
-
+    
     <div class="section">
       <div class="section-title">Introduction</div>
       <p class="intro">
         Embodied Question Answering (EQA) requires agents to explore 3D environments to obtain observations and answer questions related to the scene.
         Existing methods leverage VLMs to directly explore the environment and answer questions without explicit thinking or planning, which limits their reasoning ability and results in excessive or inefficient exploration as well as ineffective responses.
-        In this paper, we introduce \textbf{ToolEQA}, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
+        In this paper, we introduce ToolEQA, an agent that integrates external tools with multi-step reasoning, where external tools can provide more useful information for completing the task, helping the model derive better exploration directions in the next step of reasoning and thus obtaining additional effective information. 
         This enables ToolEQA to generate more accurate responses with a shorter exploration distance.
         To enhance the model's ability for tool-usage and multi-step reasoning, we further design a novel EQA data generation pipeline that automatically constructs large-scale EQA tasks with reasoning trajectories and corresponding answers.
         Based on the pipeline, we collect the EQA-RT dataset that contains about 18K tasks, divided into a training set EQA-RT-Train, and two test sets EQA-RT-Seen (scenes overlapping with the training set) and EQA-RT-Unseen (novel scenes).
-        Experiments on EQA-RT-Seen and EQA-RT-Unseen show that ToolEQA improves the success rate by 9.2$\sim$20.2\% over state-of-the-art baselines, while outperforming the zero-shot ToolEQA by 10\% in success rate. 
+        Experiments on EQA-RT-Seen and EQA-RT-Unseen show that ToolEQA improves the success rate by 9.2% ~ 20.2% over state-of-the-art baselines, while outperforming the zero-shot ToolEQA by 10% in success rate. 
         In addition, ToolEQA also achieves state-of-the-art performance on the HM-EQA, OpenEQA, and EXPRESS-Bench datasets, demonstrating its generality.
       </p>
     </div>
 
     <div class="section">
-      <div class="section-title">Method</div>
-        <div class="intro">
-          Given the input question and agent observation, we first update the hierarchical memory. 
-          Subsequently, question-relevant memories are retrieved through the memory retriever and injected into the respective modules.
-          We concatenate the memories and the question, which are then fed into the planner to determine the next navigation point. 
-          Once the agent arrives at a navigation point, it assesses whether to halt its journey. If the decision is `No', the process loops back to 
-          the memory update step; if `Yes', the agent responds to the question.
-        </div>
-      <br>
       <el-card class="teaser">
-        <el-image src="./framework.png"></el-image>
+        <el-image src="./workflow.png"></el-image>
+        <figcaption class="figcaption">Figure 1 — Overview of the ToolEQA agent workflow.</figcaption>
       </el-card>
     </div>
 
-
+    <div class="section">
+      <div class="section-title">Method</div>
+        <div class="intro">
+          To enable the agent to reason and act in complex environments, we propose a ToolEQA agent that integrates tool-usage strategies for the reasoning process. 
+          ToolEQA conducts step-by-step reasoning on past observations and, at each step, generates corresponding thoughts and code to execute tools.
+          Code offers greater flexibility than formats such as JSON for handling diverse inputs and outputs.
+          As shown in Figure 2, ToolEQA comprises three components: 
+          - a planner for generating overall task plan </br>
+          - a controller for generating thought and code
+          - an executor for executing code in environment
+        </div>
+      <br>
+      <el-card class="teaser">
+        <el-image src="./datapipeline.png"></el-image>
+        <figcaption class="figcaption">Figure 2 — EQA-RT Data Generation Pipeline.</figcaption>
+      </el-card>
+    </div>
 
     <div class="section">
       <div class="section-title">Dataset Construction</div>
       <p class="intro"> 
-        To evaluate memory ability of the models, we propose an multi-target EQA dataset based on HM3D. 
-        We first sample 5 to 10 images from the scene using the Habitat simulator. And then we input the sampled images and prompt the GPT-4o select multiple related 
-        objects from those images, specifying the output format to obtain raw data.
-        For filter the raw data, we use GPT-4-mini to removing illogical question-answer pairs, and generate diverse QA data.
-        Finally, we manually verify the correctness of the data to ensure that the questions can be answered within the embodied environment.
-        Through the above steps, we constructed 1587 QA pairs of 4 types, and the statistical information is shown in figure.
+        Our goal is to generate a large set of diverse, practical, and complex EQA tasks. 
+        We first apply a 3D detection model to obtain each object's bounding box, position, and category, and sample the object image from detected objects.
+        The object attributes and corresponding visual information are then fed into GPT-4o along with example question-answer pairs designed from brainstorming to simulate natural home conversations. 
+        Guided by the prompt, GPT-4o generates questions and answers across six types: relationship, status, distance, location, counting, and attribute, where location is divided into two subcategories `location-location' and `location-special', and attribute is divided into three subcategories `color', `special', and `size'. 
+        The answers are open-ended or multiple-choice, enabling the evaluating different capabilities of agents.
       </p>
 
       <el-card class="teaser">
-        <el-image src="./stats/data.jpg"></el-image>
+        <el-image src="./stats/data_stat.png"></el-image>
+        <figcaption class="figcaption">Figure 3 — Data statistics of the training set (EQA-RT-Train) and two test sets (EQA-RT-Seen and EQA-RT-Unseen). The scenes in EQA-RT-Seen have the overlap with EQA-RT-Train, while the scenes in EQA-RT-Unseen are not present in the training set.</figcaption>
       </el-card>
 
+      <p class="intro"> 
+        The dataset exhibits a pronounced long-tail distribution in both the average exploration steps and the number of related objects per question. 
+        Most questions require around ten exploration steps; among them, 10,224 involve a single target, 7,098 involve two targets, and 940 involve three or more objects. 
+        Figure 4(c) further compares EQA-RT-Seen and EQA-RT-Unseen in terms of the average number of objects per question, revealing that EQA-RT-Seen involves more objects. Since object count reflects task difficulty, this suggests that tasks in EQA-RT-Seen are more challenging.
+      </p>
+
+      <el-card class="teaser">
+        <el-image src="./stats/data_stat2.png"></el-image>
+        <figcaption class="figcaption">Figure 4 — Dataset statistic about steps count, objects count and the difference between two test set.</figcaption>
+      </el-card>
     </div>
 
     <div class="section">
       <div class="section-title">Evaluation and Results </div>
       <div class="intro">
-        We evaluate the <b>MemoryEQA</b> on three dataset: <b>MT-HM3D</b>, <b>GAIA</b> and <b>OpenEQA</b>. 
-        The results show that the MemoryEQA achieves improvements on all datasets, which
-        outperforms baseline by 19.8% on MT-HM3D, showing the effectiveness of the proposed framework, leading to obtain
-        better memory capabilities.
+        As shown in Table 1 and Table 2, we report the performance of different methods on EQA-RT-Seen and EQA-RT-Unseen. Our ToolEQA consistently outperforms reasoning-inefficient methods Explore-EQA~\citep{ren2024explore} and Memory-EQA~\citep{zhai2025memory} across all metrics, demonstrating its effectiveness in tackling complex tasks.
+        The comparison between agents equipped with fine-tuned and non-fine-tuned VLMs further validates the effectiveness of our data generation pipeline.
+        The success rate of fine-tuned Qwen2.5VL-7B compared to the original Qwen2.5VL-7B on EQA-RT-Unseen improved from 45.1 to 56.1, the recall rate increased from 0.17 to 0.24, and $e_{path}$ improved from 0.2 to 0.32.
+        Compared with the non-fine-tuned Qwen2.5-VL-7B, ToolEQA with GPT-4o achieves better performance, indicating that the controller’s capability directly determines the performance of ToolEQA. 
+        However, the fine-tuned Qwen2.5-VL-7B surpasses GPT-4o in $e_{path}$ and success rate, while achieving comparable recall. 
+        This indicates that our training has enabled the VLM to learn how to think and solve problems more effectively in indoor scenarios.
         <br>
       </div>
 
+      <el-card class="stats-img-1">
+        <el-image src="./results/main1.png"></el-image>
+        <figcaption class="figcaption">Table 1 — Baseline evaluation on EQA-RT-Seen.</figcaption>
+        <el-image src="./results/main2.png"></el-image>
+        <figcaption class="figcaption">Table 2 — Baseline evaluation on EQA-RT-Unseen.</figcaption>
+      </el-card>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Visualization </div>
       <div class="intro">
-        <b>Metric.</b> 
-        In the <b>MT-HM3D</b> and <b>HM-EQA</b> dataset, we measure two metrics for agents, including
-        <i><b>Succ. (Success Rate)</b></i>, and <i><b>Step (Normalization Step)</b></i>. 
-        <i><b>Succ.</b></i> measures the correctness of predicted answers. 
-        <i><b>Step</b></i> means the efficiency of exploration. 
-        In the <b>OpenEQA</b>, we use three metrics for agents, including <i><b>GPT Score</b></i>, <i><b>ROUGE_L</b></i> and <i><b>Step (Normalization Step)</b></i>.
-        <i><b>GPT Score</b></i> measures the correctness of predicted answers.
-        <i><b>ROUGE_L</b></i> measures the similirity between predicted open-vocabulary answers and ground-truth answers.
-        <br>
+        As shown in Figure 5, the decision-making process integrates spatial layout, functional space, and environmental cues to guide navigation toward the target object (towels). Each step is supported by clear reasoning, such as moving forward to approach potential bathroom space, turning right to explore a promising corridor, or turning left after excluding non-target rooms. This information-driven and reasoning-based decision paradigm ensures that the generated exploration trajectory maintains a high degree of proximity to the ground-truth trajectory, effectively validating the rationality and effectiveness of the decision-making framework in target-oriented spatial exploration tasks.
       </div>
 
+      <el-card class="stats-img-1">
+        <el-image src="./results/visual1.png"></el-image>
+        <figcaption class="figcaption">Figure 5 — Illustration of how explicit reasoning guides efficient exploration, enabling ToolEQA to answer questions faster and more accurately.</figcaption>
+      </el-card>
+
       <div class="intro">
-        <b>Results.</b> 
-        On MT-HM3D, MemoryEQA attains a success rate of 54.5%, outperforming baseline by 18.9% (Exp.3), highlighting the critical role of hierarchical memory in multi-target tasks. 
-        The results demonstrate that MemoryEQA exhibits superior performance in multi-modal reasoning tasks, particularly in complex scene understanding and knowledge integration.
-        The analysis of experimental results across Exp.1-3, Exp.4-5, and Exp.6-7 reveals a significant positive correlation between the performance of the VLM and the effectiveness 
-        of the EQA system. This observation underscores the critical role that VLM plays in enhancing the EQA system's ability to process and interpret complex queries within visual 
-        environments. As the VLM's accuracy and understanding improve, so does the EQA system's capacity to deliver precise and contextually relevant answers, demonstrating a synergistic 
-        relationship between the two components. This finding highlights the importance of advancing VLM capabilities to further boost the overall performance of EQA systems in practical 
-        applications.
-        <br>
+        Figure 6 highlights the clear advantage of tool-driven reasoning over direct Visual-Language Model (VLM) inference. Without tools, VLM often fails to localize objects precisely or distinguish fine-grained attributes such as size. In contrast, by integrating these specialized tools, our method obtained critical, fine-grained information (precise object localization, clutter-free cropping, and accurate size identification) that cannot be reliably captured by direct VLM inference on unprocessed images. This structured tool usage ensured the final comparison concluding that ``The chair has smaller volume'' was grounded in objective data, ultimately achieving a more accuracy response than would be possible with VLM alone.
       </div>
       <el-card class="stats-img-1">
-        <el-image src="./results/result.png"></el-image>
+        <el-image src="./results/visual2.png"></el-image>
+        <figcaption class="figcaption">Figure 6 — Demonstration that the visual tools outperforms direct VLM inference without tools by accurately localizing, and comparing object volume.</figcaption>
       </el-card>
-      
     </div>
 
   </div>
@@ -237,12 +234,11 @@
         BibTeX
       </h3>
       <div class="bibtex-container">
-        <pre><code class="language-bibtex">
-    @inproceedings{gao2025multi,
-      title={Memory-Centric Embodied Question Answering},
-      author={Zhai, Mingliang and Gao, Zhi and Wu, Yuwei and Jia, Yunde},
-      booktitle={arXiv preprint arXiv:2505.13948}
-    }
+        <pre><code class="language-bibtex">@inproceedings{xxx,
+  title={xxx},
+  author={xxx},
+  booktitle={xxx}
+}
 </code></pre>
       </div>
     </div>
@@ -363,7 +359,7 @@ onMounted(() => {
 }
 
 .teaser {
-  max-width: 840px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -447,6 +443,30 @@ onMounted(() => {
   /* Preserve formatting and prevent line breaks */
   overflow-x: auto;
   /* Add horizontal scroll bar */
+}
+
+.video-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  /* 16:9 响应式容器 */
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.video-wrapper video,
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: #000;
+}
+/* 小屏幕可选微调 */
+@media (max-width: 480px) {
+  .section-title { font-size: 1.2em; }
 }
 
 pre {

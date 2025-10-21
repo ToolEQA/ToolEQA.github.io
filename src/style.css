@@ -11,3 +11,9 @@
   margin: 0 auto;
   text-align: center;
 }
+.ToolEQA-icon {
+  width: 64px;     /* 根据需要改成 48px / 56px 等 */
+  height: auto;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
