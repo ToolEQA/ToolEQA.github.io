@@ -43,7 +43,7 @@
         </span>
         <span class="author">
           Yuwei Wu
-          <span class="ind">1</span>,
+          <span class="ind">1,2</span>,
         </span>
         <span class="author">
           Yunde Jia
@@ -54,7 +54,7 @@
       <div class="author-list">
         <span class="org">
           <span class="ind">1</span>
-          School of Computer, Beijing Institute of Technology
+          Beijing Key Laboratory of Intelligent Information Technology, Beijing Institute of Technology
         </span>
         <br>
         <span class="org">
