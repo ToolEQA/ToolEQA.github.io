@@ -136,7 +136,7 @@
 
     <div class="section">
       <el-card class="teaser">
-        <el-image src="./workflow.png"></el-image>
+        <el-image src="/workflow.png"></el-image>
         <figcaption class="figcaption">Figure 1 — Overview of the ToolEQA agent workflow.</figcaption>
       </el-card>
     </div>
@@ -154,7 +154,7 @@
         </div>
       <br>
       <el-card class="teaser">
-        <el-image src="./datapipeline.png"></el-image>
+        <el-image src="/datapipeline.png"></el-image>
         <figcaption class="figcaption">Figure 2 — EQA-RT Data Generation Pipeline.</figcaption>
       </el-card>
     </div>
@@ -170,7 +170,7 @@
       </p>
 
       <el-card class="teaser">
-        <el-image src="./stats/data_stat.png"></el-image>
+        <el-image src="/stats/data_stat.png"></el-image>
         <figcaption class="figcaption">Figure 3 — Data statistics of the training set (EQA-RT-Train) and two test sets (EQA-RT-Seen and EQA-RT-Unseen). The scenes in EQA-RT-Seen have the overlap with EQA-RT-Train, while the scenes in EQA-RT-Unseen are not present in the training set.</figcaption>
       </el-card>
 
@@ -181,7 +181,7 @@
       </p>
 
       <el-card class="teaser">
-        <el-image src="./stats/data_stat2.png"></el-image>
+        <el-image src="/stats/data_stat2.png"></el-image>
         <figcaption class="figcaption">Figure 4 — Dataset statistic about steps count, objects count and the difference between two test set.</figcaption>
       </el-card>
     </div>
@@ -199,9 +199,9 @@
       </div>
 
       <el-card class="stats-img-1">
-        <el-image src="./results/main1.png"></el-image>
+        <el-image src="/results/main1.png"></el-image>
         <figcaption class="figcaption">Table 1 — Baseline evaluation on EQA-RT-Seen.</figcaption>
-        <el-image src="./results/main2.png"></el-image>
+        <el-image src="/results/main2.png"></el-image>
         <figcaption class="figcaption">Table 2 — Baseline evaluation on EQA-RT-Unseen.</figcaption>
       </el-card>
     </div>
@@ -213,7 +213,7 @@
       </div>
 
       <el-card class="stats-img-1">
-        <el-image src="./results/visual1.png"></el-image>
+        <el-image src="/results/visual1.png"></el-image>
         <figcaption class="figcaption">Figure 5 — Illustration of how explicit reasoning guides efficient exploration, enabling ToolEQA to answer questions faster and more accurately.</figcaption>
       </el-card>
 
@@ -221,7 +221,7 @@
         Figure 6 highlights the clear advantage of tool-driven reasoning over direct Visual-Language Model (VLM) inference. Without tools, VLM often fails to localize objects precisely or distinguish fine-grained attributes such as size. In contrast, by integrating these specialized tools, our method obtained critical, fine-grained information (precise object localization, clutter-free cropping, and accurate size identification) that cannot be reliably captured by direct VLM inference on unprocessed images. This structured tool usage ensured the final comparison concluding that ``The chair has smaller volume'' was grounded in objective data, ultimately achieving a more accuracy response than would be possible with VLM alone.
       </div>
       <el-card class="stats-img-1">
-        <el-image src="./results/visual2.png"></el-image>
+        <el-image src="/results/visual2.png"></el-image>
         <figcaption class="figcaption">Figure 6 — Demonstration that the visual tools outperforms direct VLM inference without tools by accurately localizing, and comparing object volume.</figcaption>
       </el-card>
     </div>
@@ -234,10 +234,11 @@
         BibTeX
       </h3>
       <div class="bibtex-container">
-        <pre><code class="language-bibtex">@inproceedings{xxx,
-  title={xxx},
-  author={xxx},
-  booktitle={xxx}
+        <pre><code class="language-bibtex">@article{zhai2025multi,
+  title={Multi-Step Reasoning for Embodied Question Answering via Tool Augmentation},
+  author={Zhai, Mingliang and Liang, Hansheng and Fan, Xiaomeng and Gao, Zhi and Li, Chuanhao and Sun, Che and Bin, Xu and Wu, Yuwei and Jia, Yunde},
+  journal={arXiv preprint arXiv:2510.20310},
+  year={2025}
 }
 </code></pre>
       </div>
@@ -254,31 +255,6 @@
 <script setup>
 import Dialog from './Dialog.vue'
 
-import { onMounted, ref } from 'vue'
-
-const dataset1 = ref([])
-const loadData1 = async () => {
-  const resp1 = await fetch('./data/demo-100k.json')
-  dataset1.value = await resp1.json()
-}
-
-const dataset2 = ref([])
-const loadData2 = async () => {
-  const resp2 = await fetch('./data/demo-1m.json')
-  dataset2.value = await resp2.json()
-}
-
-const dataset3 = ref([])
-const loadData3 = async () => {
-  const resp3 = await fetch('./data/demo-bench.json')
-  dataset3.value = await resp3.json()
-}
-
-onMounted(() => {
-  loadData1(),
-    loadData2(),
-    loadData3()
-})
 </script>
 
 
